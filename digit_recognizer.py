@@ -59,3 +59,7 @@ model.compile(loss='categorical_crossentropy',
 model.fit(x_train_simple, y_train, 
         validation_data=(x_test_simple, y_test))
 
+model.save("model.h5")
+
+!tensorflowjs_converter --input_format keras '/content/model.h5' '/content/mnist-model'
+
